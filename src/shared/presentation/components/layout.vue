@@ -12,17 +12,19 @@ const toggleDrawer = () => {
 }
 const items = [
   {label: 'option.home', to: '/home'},
-  {label: 'option.about', to: '/about'}
+  {label: 'option.about', to: '/about'},
+  {label: 'option.categories', to: '/publishing/categories'},
+  {label: 'option.tutorials', to: '/publishing/tutorials'}
 ];
 </script>
 
 <template>
-  <!--pv-toast/-->
-  <!--pv-confirm-dialog/-->
+  <pv-toast/>
+  <pv-confirm-dialog/>
   <div class="header">
     <pv-toolbar class="bg-primary">
       <template #start>
-        <!--pv-button class="p-button-text" icon="pi pi-bars" @click="toggleDrawer"/-->
+        <pv-button class="p-button-text" icon="pi pi-bars" @click="toggleDrawer"/>
         <h3>ACME Learning Center</h3>
       </template>
       <template #center>
@@ -39,9 +41,11 @@ const items = [
     </pv-toolbar>
     <pv-drawer v-model:visible="drawer"/>
   </div>
+
   <div class="main-content">
     <router-view/>
   </div>
+
   <div class="footer">
     <footer-content/>
   </div>

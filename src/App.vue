@@ -7,6 +7,3 @@ const { t } = useI18n();
 <template>
   <layout/>
 </template>
-
-<style scoped>
-</style>
