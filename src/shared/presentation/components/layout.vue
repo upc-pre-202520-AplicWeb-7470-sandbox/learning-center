@@ -4,10 +4,14 @@ import LanguageSwitcher from "./language-switcher.vue";
 import {ref} from "vue";
 import {useI18n} from "vue-i18n";
 import FooterContent from "./footer-content.vue";
+import AuthenticationSection from "../../../iam/presentation/components/authentication-section.vue";
 const { t } = useI18n();
 
 const drawer = ref(false);
 const toggleDrawer = () => {
+  /**
+   * Toggles the state of the drawer between open and closed.
+   */
   drawer.value = !drawer.value;
 }
 const items = [
@@ -36,16 +40,15 @@ const items = [
             <router-link :to="item.to" :class="slotProps['class']">{{ t(item.label) }}</router-link>
           </pv-button>
         </div>
+        <authentication-section/>
         <language-switcher/>
       </template>
     </pv-toolbar>
     <pv-drawer v-model:visible="drawer"/>
   </div>
-
   <div class="main-content">
     <router-view/>
   </div>
-
   <div class="footer">
     <footer-content/>
   </div>
